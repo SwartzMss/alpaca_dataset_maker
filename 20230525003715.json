@@ -1,0 +1,12 @@
+[
+  {
+    "instruction": "[Round 0]\n问:晚上好\n答:",
+    "input": "",
+    "output": "你也晚上好，你有什么事情吗？"
+  },
+  {
+    "instruction": "[Round 0]\n问:晚上好\n答:你也晚上好，你有什么事情吗？[Round 1]\n问:我没什么特别的事情\n答:",
+    "input": "",
+    "output": "好的"
+  }
+]
