@@ -11,7 +11,7 @@ def save_answers_as_json(file_path):
     for index in range(0, len(st.session_state.chat_history), 2):
         question = st.session_state.chat_history[index]
         answer = st.session_state.chat_history[index + 1] if index + 1 < len(st.session_state.chat_history) else ''
-        jsonDataTmpForinstruction += "[Round {}]\n问:{}\n答:".format(len(jsonData), question)
+        jsonDataTmpForinstruction += "[Round {}]\n问:{}\n答: ".format(len(jsonData), question)
         item = {
             "instruction": jsonDataTmpForinstruction,
             "input": "",
@@ -24,10 +24,10 @@ def save_answers_as_json(file_path):
 
 
 def generate_dataset():
-    current_time = datetime.now().strftime("%Y%m%d%H%M%S")
+    current_time = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
     file_name = f"{current_time}.json"
     # 生成文件路径
-    file_path = os.path.join(os.getcwd(), file_name)
+    file_path = os.path.join(os.getcwd(),"data", file_name)
 
     # 保存为JSON文件
     save_answers_as_json(file_path)
@@ -58,9 +58,6 @@ def main():
         save_button = row1[0].button("保存为Json")
 
     if save_button:
-        #if len(st.session_state.chat_history) < 3:
-        #    st.error(f"请至少使用三条数据")
-        #    return
         generate_dataset()
         st.session_state.chat_history.clear()  # 清空聊天历史
     
